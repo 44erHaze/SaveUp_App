@@ -1,7 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Microsoft.Maui.Controls;
 using SaveUp.Models;
 using SaveUp.Services;
 
@@ -35,12 +37,14 @@ namespace SaveUp.ViewModels
 
         public ICommand SaveCommand { get; }
         public ICommand ClearCommand { get; }
+        public ICommand ShowListCommand { get; }
 
         public MainViewModel()
         {
             SavedItems = new ObservableCollection<SavedItem>();
             SaveCommand = new Command(OnSave);
             ClearCommand = new Command(OnClear);
+            ShowListCommand = new Command(OnShowList);
 
             // Load persisted data
             _ = LoadDataAsync();
@@ -75,6 +79,11 @@ namespace SaveUp.ViewModels
             SavedItems.Clear();
             var dataService = new DataService();
             await dataService.SaveDataAsync(SavedItems);
+        }
+
+        private async void OnShowList()
+        {
+            await Shell.Current.GoToAsync("//listpage");
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

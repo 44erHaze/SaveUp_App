@@ -10,8 +10,9 @@ namespace SaveUp.Views
         }
 
         private async void OnShowListClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new ListPage());
-        }
+{
+    await Navigation.PushAsync(new ListPage());
+}
+
     }
 }

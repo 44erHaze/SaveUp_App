@@ -1,4 +1,5 @@
 ﻿using Microsoft.Maui.Controls;
+using SaveUp.Views;
 
 namespace SaveUp
 {
@@ -8,7 +9,9 @@ namespace SaveUp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Views.StartPage());
+            
+            MainPage = new NavigationPage(new StartPage());
         }
     }
+
 }

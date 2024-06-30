@@ -10,7 +10,7 @@
                HorizontalOptions="Center" 
                Margin="0,0,0,20"/>
 
-        <Button Text="Produkt erstellen"
+        <Button Text="Sparen"
                 Clicked="OnCreateProductClicked"
                 Margin="0,0,0,10"/>
 
